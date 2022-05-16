@@ -27,24 +27,24 @@ namespace CodeKata
 
         private static int CompareParts(int partIndex, List<int> version1Parts, List<int> version2Parts)
         {
-            var version1Minor = 0;
-            var version2Minor = 0;
+            var version1Part = 0;
+            var version2Part = 0;
             if (version1Parts.Count >= partIndex + 1)
             {
-                version1Minor = version1Parts[partIndex];
+                version1Part = version1Parts[partIndex];
             }
 
             if (version2Parts.Count >= partIndex + 1)
             {
-                version2Minor = version2Parts[partIndex];
+                version2Part = version2Parts[partIndex];
             }
 
-            if (version1Minor < version2Minor)
+            if (version1Part < version2Part)
             {
                 return -1;
             }
 
-            if (version1Minor > version2Minor)
+            if (version1Part > version2Part)
             {
                 return 1;
             }
