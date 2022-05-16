@@ -9,11 +9,11 @@ namespace CodeKata
     {
         public static int CompareVersions(string version1, string version2)
         {
-            var version1Parts = ValidateVersionFormat(version1);
-            var version2Parts = ValidateVersionFormat(version2);
+            var version1Parts = VerifyVersionFormat(version1);
+            var version2Parts = VerifyVersionFormat(version2);
 
-            var maxNumOfPartsInVersions = Math.Max(version1Parts.Count, version2Parts.Count);
-            for (var partIndex = 0; partIndex <= maxNumOfPartsInVersions; partIndex++)
+            var maxPartCount = Math.Max(version1Parts.Count, version2Parts.Count);
+            for (var partIndex = 0; partIndex <= maxPartCount; partIndex++)
             {
                 var partCompareResult = CompareParts(partIndex, version1Parts, version2Parts);
                 if (partCompareResult != 0)
@@ -33,7 +33,6 @@ namespace CodeKata
             {
                 version1Part = version1Parts[partIndex];
             }
-
             if (version2Parts.Count >= partIndex + 1)
             {
                 version2Part = version2Parts[partIndex];
@@ -43,16 +42,14 @@ namespace CodeKata
             {
                 return -1;
             }
-
             if (version1Part > version2Part)
             {
                 return 1;
             }
-
             return 0;
         }
 
-        private static List<int> ValidateVersionFormat(string version)
+        private static List<int> VerifyVersionFormat(string version)
         {
             var versionPartsAsStrings = version.Split(".");
             var versionPartsAsInts = new List<int>();
