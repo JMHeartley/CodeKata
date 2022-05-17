@@ -5,7 +5,7 @@ using Xunit;
 
 namespace CodeKata
 {
-    public class UnitTest1
+    public class CodeKata
     {
         public static int CompareVersions(string version1, string version2)
         {
